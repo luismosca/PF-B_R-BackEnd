@@ -23,19 +23,19 @@ module.exports = (sequelize) => {
       },
     },
     jude_order: {
-      type: DataTypes.INTEGER(1),
+      type: DataTypes.STRING,
       allowNull: false,
     },
     state: {
       type: DataTypes.ENUM('pending', 'accepted'),
       defaultValue: 'pending',
     },
-    feha: {
+    date: {
       type: DataTypes.DATEONLY, // TODO: check if this works with postgres
       allowNull: false,
     },
-    lugar: {
-      type: DataTypes.TEXT,
+    place: {
+      type: DataTypes.STRING,
     },
   });
 };
