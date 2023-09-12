@@ -15,6 +15,23 @@ module.exports = (sequelize) => {
         email: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        image: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        role: {
+            type: DataTypes.ENUM('admin', 'user'),
+            allowNull: false
+        },
+        token: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
+
+    },
+    {
+        freezeTableName: true,
+        timestamps: false
     });
 }
