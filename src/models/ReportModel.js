@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
       primaryKey: true,
       allowNull: false,
     },
-    title: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -22,20 +22,20 @@ module.exports = (sequelize) => {
         isUrl: true,
       },
     },
-    jude_order: {
-      type: DataTypes.INTEGER(1),
+    court_order: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     state: {
       type: DataTypes.ENUM('pending', 'accepted'),
       defaultValue: 'pending',
     },
-    feha: {
+    date: {
       type: DataTypes.DATEONLY, // TODO: check if this works with postgres
       allowNull: false,
     },
-    lugar: {
-      type: DataTypes.TEXT,
+    place: {
+      type: DataTypes.STRING,
     },
   });
 };
