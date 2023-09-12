@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
       primaryKey: true,
       allowNull: false,
     },
-    title: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
         isUrl: true,
       },
     },
-    jude_order: {
+    court_order: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -35,7 +35,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     place: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
     },
   });
 };
