@@ -22,7 +22,7 @@ module.exports = (sequelize) => {
         isUrl: true,
       },
     },
-    jude_order: {
+    court_order: {
       type: DataTypes.STRING,
       allowNull: false,
     },
