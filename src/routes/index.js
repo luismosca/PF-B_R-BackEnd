@@ -1,9 +1,25 @@
-const { Router } = require('express')
+const { Router } = require('express');
+const router = Router();
 
+// Aquí debes proporcionar una función de middleware válida para cada ruta
+router.use('/session', (req, res, next) => {
+  // Tu middleware para /session
+  next();
+});
 
-const router = Router()
+router.use('/users', (req, res, next) => {
+  // Tu middleware para /users
+  next();
+});
 
-router.use('/session')
-router.use('/users')
-router.use('/report')
-router.use('/donations')
+router.use('/report', (req, res, next) => {
+  // Tu middleware para /report
+  next();
+});
+
+router.use('/donations', (req, res, next) => {
+  // Tu middleware para /donations
+  next();
+});
+
+module.exports = router;
