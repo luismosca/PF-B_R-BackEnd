@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  sequelize.define('report', {
+  sequelize.define('Report', {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    state: {
+    status: {
       type: DataTypes.ENUM('pending', 'accepted'),
       defaultValue: 'pending',
     },
@@ -34,8 +34,8 @@ module.exports = (sequelize) => {
       type: DataTypes.DATEONLY, // TODO: check if this works with postgres
       allowNull: false,
     },
-    place: {
+    location: {
       type: DataTypes.STRING,
     },
-  });
+  }, { freezeTableName: true,}); // Para mantener el nombre tal como lo definimos en la BD utilizando sequelize.
 };
