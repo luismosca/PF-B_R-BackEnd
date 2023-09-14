@@ -1,8 +1,10 @@
 const { Router } = require("express");
-
 const sessionRouter = Router();
 
-sessionRouter.get("/") ///login
-sessionRouter.post("/") //register
+const {registerHandler} = require('../handlers/sessionHandlers/registerHandler.js');
+const { loginHandler } = require("../handlers/loginHandler.js");
+
+sessionRouter.get("/login", loginHandler) ///login
+sessionRouter.post("/register", registerHandler) //register
 
 module.exports = sessionRouter;
