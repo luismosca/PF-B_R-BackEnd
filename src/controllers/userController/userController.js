@@ -10,17 +10,6 @@ async function getAllUsers(req, res) {
   }
 }
 
-const postUser = async (req, res) => {
-  try {
-    const user = req.body;
-    await User.create(user);
-
-    res.json('New User created');
-  } catch (error) {
-    res.status(400).json(error.message);
-  }
-};
-
 const putUser = async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
@@ -51,7 +40,6 @@ const getUserByEmail = async (req, res) => {
 
 module.exports = {
   getAllUsers,
-  postUser,
   putUser,
   getUserByEmail,
 };
