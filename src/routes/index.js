@@ -1,4 +1,5 @@
 const { Router } = require('express');
+const reportsRouter = require('./reportsRouter');
 const router = Router();
 const sessionRouter = require('./sessionRouter.js');
 const usersRouter = require('./usersRouter.js');
@@ -7,10 +8,7 @@ router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 
-router.use('/report', (req, res, next) => {
-  // Tu middleware para /report
-  next();
-});
+router.use('/reports', reportsRouter);
 
 router.use('/donations', (req, res, next) => {
   // Tu middleware para /donations
