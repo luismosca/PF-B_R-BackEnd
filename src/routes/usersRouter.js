@@ -1,20 +1,10 @@
 const { Router } = require('express');
-const {
-  putUser,
-  getUserByEmail,
-  getAllUsers,
-} = require('../controllers/userController.js');
+const { getAllUsers } = require('../controllers/userController/userController');
 
 const userRouter = Router();
 
 userRouter.get('/', getAllUsers);
 
-userRouter.route('/').put(putUser);
-
-userRouter.route('/:email').get((req, res) => {
-  getUserByEmail(res, req.params.email);
-});
-
-//userRouter.get('/:email', login, getUserByEmail);
+// userRouter.route('/').put(putUser);
 
 module.exports = userRouter;
