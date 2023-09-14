@@ -1,11 +1,8 @@
 const { Router } = require('express');
 const router = Router();
-
+const sessionRouter = require('./sessionRouter.js')
 // Aquí debes proporcionar una función de middleware válida para cada ruta
-router.use('/session', (req, res, next) => {
-  // Tu middleware para /session
-  next();
-});
+router.use('/session', sessionRouter);
 
 router.use('/users', (req, res, next) => {
   // Tu middleware para /users
