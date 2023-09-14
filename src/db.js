@@ -49,5 +49,6 @@ Report.hasOne(User)
 
 module.exports = {
    ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
+   Report, User, // Si no funciona la exportación por ...sequelize.models
    conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };

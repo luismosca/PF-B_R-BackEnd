@@ -1,9 +1,10 @@
 const { Router } = require("express");
+const { getReportsHandler, getReportByIdHandler } = require("../handlers/reportsHandler");
 
 const reportsRouter = Router();
 
-reportsRouter.get("/"); // general y name
-reportsRouter.get("/:id"); // para searchBar
+reportsRouter.get("/", getReportsHandler); // general y name
+reportsRouter.get("/:id", getReportByIdHandler); // para searchBar
 reportsRouter.post("/"); // para publicar
 
 
