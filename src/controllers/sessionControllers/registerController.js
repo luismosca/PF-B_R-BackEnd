@@ -1,8 +1,8 @@
 const {User} = require("../../db")
 
-const registerController = async (data) => {
+const registerController = async (userData) => {
     try {
-        const newUser = User.create(data);
+        const newUser = await User.create(userData);
         return newUser;
     } catch (error) {
         throw error;
