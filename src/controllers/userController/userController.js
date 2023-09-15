@@ -13,9 +13,9 @@ async function getAllUsers() {
   }
 }
 
-async function getUserByName() {
+async function getUserByName(name) {
   try {
-    const report = await User.findAll({
+    const user = await User.findAll({
       include: [
         {
           model: User,
@@ -29,6 +29,7 @@ async function getUserByName() {
       ],
       limit: 15,
     });
+    return user;
   } catch (error) {
     throw error;
   }
@@ -36,9 +37,9 @@ async function getUserByName() {
 
 const getUserById = async (id) => {
   try {
-    const report = await Report.findByPk(id);
-    if (report) {
-      return report;
+    const user = await Report.findByPk(id);
+    if (user) {
+      return user;
     } else {
       return null;
     }
