@@ -76,9 +76,34 @@ const getReportById = async (id) => {
 
 }
 
-// const createReports = async (data) => {
-//     const { name, description, height, }
-// }
+const createReports = async (data) => {
+    try {
+        const reportCreated = await Report.create({
+            name: data.name,
+            description: data.description,
+            image: data.image,
+            age: data.age,
+            gender: data.gender,
+            birthday_date: data.birthday_date,
+            nationality: data.nationality,
+            ethnicity: data.ethnicity,
+            hair_style: data.hair_style,
+            hair_color: data.hair_color,
+            eyes_color: data.eyes_color,
+            height: data.height,
+            weight: data.weight,
+            clothes: data.clothes,
+            particular_signs: data.particular_signs,
+            court_order: data.court_order,
+            status: data.status,
+            date: data.date,
+            location: data.location
+        });
+        return reportCreated;
+    } catch (error) {
+        throw error;
+    }
+}
 
 
 
@@ -86,4 +111,5 @@ module.exports = {
     getAllReports,
     getReportsByName,
     getReportById,
+    createReports
 }
