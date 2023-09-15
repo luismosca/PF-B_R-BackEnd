@@ -22,6 +22,54 @@ module.exports = (sequelize) => {
         isUrl: true,
       },
     },
+    age: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    birthday_date: {
+      type: DataTypes.DATEONLY,
+      allowNull: false,
+    },
+    nationality: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    ethnicity: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    hair_style: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    hair_color: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    eyes_color: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    height: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
+    weight: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+    },
+    clothes: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    particular_signs: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     court_order: {
       type: DataTypes.STRING,
       allowNull: false,
