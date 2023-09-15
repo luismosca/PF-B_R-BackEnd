@@ -75,9 +75,13 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM('pending', 'accepted'),
+      type: DataTypes.ENUM('pending', 'approved'), // cambio de accepted a approved por temas gramaticales
       defaultValue: 'pending',
     },
+    // tracking: {
+    //   type: DataTypes.ENUM("Searching", "Founded", ), // Se añadió esta propiedad para indicar en la card si la persona está siendo buscada ó si ya fue encontrada
+    //   defaultValue: "Active"
+    // },
     date: {
       type: DataTypes.DATEONLY, // TODO: check if this works with postgres
       allowNull: false,

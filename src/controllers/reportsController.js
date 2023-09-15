@@ -7,11 +7,12 @@ const getAllReports = async (page, size) => {
         limit: Number(size),
         offset: Number(page) * Number(size)
     }
+    console.log(options);
     try {
 
         //count = total de registros de la busqueda, rows = registros de dicha busqueda;
 
-        const { count, rows } = await Report.findAndCountAll({
+        const { count, rows } = await Report.findAndCountAll(options, {
             order: [["createdAt", "DESC"]] // Ordenar por fecha de creación en orden descendente, (Para tener los reportes más recientes como principales en la Home)
         })
         return {
@@ -33,14 +34,14 @@ const getReportsByName = async (name) => {
                 {
                     model: User,
                     attibutes: ["name"],
-                    where: {
-                        name: {
-                            [Op.iLike]: `%${name}%`
-                        }
-                    },
                 },
             ],
-            limit: 15, // Limita la cantidad de reportes a 20
+            where: {
+                name: {
+                    [Op.iLike]: `%${name}%`
+                }
+            },
+            limit: 5, // Limita la cantidad de reportes a 5
         })
         if (report) {
             return report;
