@@ -1,32 +1,54 @@
 const { User } = require('../../db');
 const { Op } = require('sequelize');
 
-async function getAllUsers(req, res) {
+async function getAllUsers() {
   try {
     const usersDb = await User.findAll();
     if (!usersDb.length) {
-      return res.status(400).send('Users not Found');
+      return null;
     }
-    res.status(200).send(usersDb);
+    return usersDb;
   } catch (error) {
-    res.status(400).send('Users not Found');
+    throw error;
   }
 }
 
-// const putUser = async (req, res) => {
-//   try {
-//     const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
-//       new: true,
-//     });
-//     if (!updatedUser) {
-//       return res.status(404).json({ error: 'Usuario no found.' });
-//     }
-//     res.status(200).json(updatedUser);
-//   } catch (error) {
-//     res.status(500).json({ error: 'Un error al actualizar el usuario.' });
-//   }
-// };
+async function getUserByName() {
+  try {
+    const report = await User.findAll({
+      include: [
+        {
+          model: User,
+          attibutes: ['name'],
+          where: {
+            name: {
+              [Op.iLike]: `%${name}%`,
+            },
+          },
+        },
+      ],
+      limit: 15,
+    });
+  } catch (error) {
+    throw error;
+  }
+}
+
+const getUserById = async (id) => {
+  try {
+    const report = await Report.findByPk(id);
+    if (report) {
+      return report;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    throw error;
+  }
+};
 
 module.exports = {
   getAllUsers,
+  getUserByName,
+  getUserById,
 };
