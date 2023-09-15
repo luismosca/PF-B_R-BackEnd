@@ -1,15 +1,22 @@
 const { Report, User } = require("../db");
 const { Op } = require("sequelize");
 
-const getAllReports = async () => {
+const getAllReports = async (page, size) => {
+
+    let options = {
+        limit: Number(size),
+        offset: Number(page) * Number(size)
+    }
     try {
-        const reports = await Report.findAll({
+
+        //count = total de registros de la busqueda, rows = registros de dicha busqueda;
+
+        const { count, rows } = await Report.findAndCountAll({
             order: [["createdAt", "DESC"]] // Ordenar por fecha de creación en orden descendente, (Para tener los reportes más recientes como principales en la Home)
         })
-        if (!reports.length) {
-            return null;
-        } else {
-            return reports;
+        return {
+            total: count,
+            reporst: rows,
         }
 
     } catch (error) {
