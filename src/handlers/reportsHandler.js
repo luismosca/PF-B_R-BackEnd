@@ -2,19 +2,22 @@ const { getReportsByName, getAllReports, getReportById, createReports } = requir
 
 
 const getReportsHandler = async (req, res) => {
-    const { name } = req.query;
-
+    const { name, page = 0, size = 5 } = req.query;
+   
+    
     try {
         if (name) {
-            const reportByName = await getReportsByName(name);
+            const reportByName = await getReportsByName(name, page, size);
             reportByName ? res.status(200).json(reportByName) : res.status(400).send({message: `No se encuentra el reporte de ${name}, si no ha sido registrado, puedes hacerlo en nuestro formulario de reportes de personas`});
 
         } else {
-            const allReports = await getAllReports();
+            const allReports = await getAllReports(page, size);
             allReports ? res.status(200).json(allReports) : res.status(400).send({message: `Error al encontrar los reportes`});
         }
     } catch (error) {
-        return res.status(500).send({error: `Error al encontrar los reportes`});
+
+        return res.status(500).send({error: `Error al encontrar los reportes`})
+
     }
 
 }
