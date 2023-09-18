@@ -11,7 +11,7 @@ const getAllReports = async (options) => {
         const { count, rows } = await Report.findAndCountAll(options)
         return {
             total: count,
-            reporst: rows,
+            reports: rows,
         }
 
     } catch (error) {
