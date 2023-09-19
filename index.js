@@ -8,8 +8,8 @@ conn.sync({ force: true }).then(() => {
     console.log('listening at 3001'); // eslint-disable-line no-console
   });
 })
-.then(async ()=>{
+.then(async ()=>{ 
   const reportDb = await Report.bulkCreate(reports, { ignoreDuplicates: true })
-  console.log(reportDb);
+  // console.log(reportDb);
   console.log(`%s Test reports were added to the DB`);
 }) // Para cargar los reportes de prueba al iniciar el servidor
