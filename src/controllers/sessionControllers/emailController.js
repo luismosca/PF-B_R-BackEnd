@@ -1,5 +1,3 @@
-"use strict";
-import logo from "../../assets/B&R.png"
 
 const nodemailer = require("nodemailer");
 
@@ -117,4 +115,4 @@ const emailController = (userEmail) => {
   });
 };
 
-module.exports = { emailController };
+module.exports = {emailController};

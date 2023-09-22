@@ -31,8 +31,15 @@ module.exports = (sequelize) => {
         token: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        facebookId: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        googleId: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
-
     },
     {
         freezeTableName: true,
