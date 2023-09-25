@@ -3,11 +3,11 @@ const { User, Report } = require("../db");
 const { Op } = require("sequelize")
 
 const getReportsHandler = async (req, res) => {
-    const { name, page = 0, size = 5, gender, age, location, } = req.query; 
+    const { name, page = 1, size = 4, gender, age, location, } = req.query;
     // generos, edad y ubicación, name
     let options = {
         limit: Number(size),
-        offset: Number(page) * Number(size),
+        offset: (page - 1) * Number(size),
         where: {},
         include: [
             {
@@ -15,7 +15,7 @@ const getReportsHandler = async (req, res) => {
                 // attributes: ["name"],
             },
         ],
-        order: [["createdAt", "DESC"], ],  // Ordenamiento por defecto por fecha de creación descendente (Se mantiene en todos los filtros y ordenamientos adicionales)
+        order: [["id", "DESC"],],  // Ordenamiento por defecto por fecha de creación descendente (Se mantiene en todos los filtros y ordenamientos adicionales)
     };
     if (name) {
 
@@ -32,11 +32,11 @@ const getReportsHandler = async (req, res) => {
     }
     if (age) {
         if (age === "Youngest") {
-            options.order.push(["age", "ASC"]) 
+            options.order.push(["age", "ASC"])
         } else if (age === "Oldest") {
-            options.order.push(["age", "DESC"]) 
-        }   
-    }  
+            options.order.push(["age", "DESC"])
+        }
+    }
     if (location) {
         options.where.location = {
             [Op.iLike]: `%${location}%`,
@@ -44,12 +44,15 @@ const getReportsHandler = async (req, res) => {
     }
     try {
 
-        const allReports = await getAllReports(options); // por medio del objeto options enviamos todas las queries que queremos especificar en la busqueda (Filtros/Ordenamientos)
-        if (!allReports || allReports.total === 0) { // el objeto options tiene la propiedad total que nos especifica la cantidad de resultados de la busqueda, entonces si la propiedad total viene vácia es porque no hubo ningún resultado en la consulta al controller, por lo tanto devolveriamos el mensaje que no se encontró el reporte con los datos especificados en la ru
+        const reports = await getAllReports(options); // por medio del objeto options enviamos todas las queries que queremos especificar en la busqueda (Filtros/Ordenamientos)
+
+
+        if (!reports || reports.total === 0) { // el objeto options tiene la propiedad total que nos especifica la cantidad de resultados de la busqueda, entonces si la propiedad total viene vácia es porque no hubo ningún resultado en la consulta al controller, por lo tanto devolveriamos el mensaje que no se encontró el reporte con los datos especificados en la ru    
             return res.status(404).json({ message: "Report not found" });
         }
+        return res.status(200).json(reports);
 
-        return res.status(200).json(allReports);
+
     } catch (error) {
 
         return res.status(500).send({ error: `Error al encontrar los reportes` })

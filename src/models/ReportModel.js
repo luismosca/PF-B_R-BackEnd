@@ -89,5 +89,7 @@ module.exports = (sequelize) => {
     location: {
       type: DataTypes.STRING,
     },
+    
+
   }, { freezeTableName: true,}); // Para mantener el nombre tal como lo definimos en la BD utilizando sequelize.
 };
