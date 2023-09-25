@@ -11,13 +11,13 @@ passport.use(
     {
       clientID: FACEBOOK_APP_ID,
       clientSecret: FACEBOOK_APP_SECRET,
-      callbackURL: "http://localhost:3001/auth/facebook/callback", // Cambia esto a tu URL de redireccionamiento
+      callbackURL: "/auth/facebook/callback", // Cambia esto a tu URL de redireccionamiento
     },
     async (accessToken, refreshToken, profile, done) => {
       // Aquí puedes verificar si el usuario ya existe en tu base de datos o crear uno nuevo.
       // Luego, llama a done() para completar la autenticación.
       try {
-        const user = await User.findOne({ facebookId: profile.id });
+        const user = await User.findOne({where: { facebookId: profile.id }});
         if (user) {
           console.log("Facebook User already exist in DB..");
           return done(null, user);
@@ -38,14 +38,6 @@ passport.use(
   )
 );
 
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
-
-passport.deserializeUser((user, done) => {
-  done(null, user);
-});
-
 router.get("/", passport.authenticate("facebook", { scope: "email" }));
 
 router.get(
@@ -62,8 +54,8 @@ router.get(
 router.get("/success", async (req, res) => {
   const userInfo = {
     id: req.session.passport.user.id,
-    displayName: req.session.passport.user.displayName,
-    provider: req.session.passport.user.provider,
+    name_surName: req.session.passport.user.displayName,
+    // provider: req.session.passport.user.provider,
   };
   res.render("fb-success", { user: userInfo });
 });
@@ -80,5 +72,7 @@ router.get("/signout", (req, res) => {
     res.status(400).send({ message: "Failed to sign out fb user" });
   }
 });
+
+router.set('view engine', 'ejs');
 
 module.exports = router;

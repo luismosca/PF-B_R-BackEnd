@@ -10,23 +10,23 @@ module.exports = (sequelize) => {
         },
         name_surName: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         image: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         role: {
             type: DataTypes.ENUM('admin', 'user'),
-            allowNull: false
+            allowNull: true
         },
         token: {
             type: DataTypes.STRING,

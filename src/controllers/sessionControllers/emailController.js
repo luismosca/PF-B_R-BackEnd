@@ -1,22 +1,21 @@
-
 const nodemailer = require("nodemailer");
 
-const emailController = (userEmail) => {
-  const transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    auth: {
-      user: "nina.hansen@ethereal.email",
-      pass: "dbJphuC5uKB62A1BEf",
-    },
-  });
+  const emailController = (userEmail) => {
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      auth: {
+        user: "piero7210@gmail.com",
+        pass: "xdqn umdb fgai hxny",
+      },
+    });
 
-  let message = {
-    from: "nina.hansen@ethereal.email",
-    to: userEmail,
-    subject: "Confirmación de registro exitoso",
-    text: "Bienvenido/a a Búsqueda y Rescate, la Web App donde somos agentes de cambio!",
-    html: `<!DOCTYPE html>
+    let message = {
+      from: "piero7210@gmail.com",
+      to: userEmail,
+      subject: "Confirmación de registro exitoso",
+      text: "Bienvenido/a a Búsqueda y Rescate, la Web App donde somos agentes de cambio!",
+      html: `<!DOCTYPE html>
     <html lang="es">
     <head>
         <meta charset="UTF-8">
@@ -102,17 +101,18 @@ const emailController = (userEmail) => {
         </div>
     </body>
     </html>`,
+    };
+    transporter.sendMail(message, (error, info) => {
+      if (error) {
+        console.log("Error occurred");
+        console.log(error.message);
+        return process.exit(1);
+      }
+
+      console.log("Message sent successfully!");
+      console.log(nodemailer.getTestMessageUrl(info));
+    });
   };
-  transporter.sendMail(message, (error, info) => {
-    if (error) {
-      console.log("Error occurred");
-      console.log(error.message);
-      return process.exit(1);
-    }
 
-    console.log("Message sent successfully!");
-    console.log(nodemailer.getTestMessageUrl(info));
-  });
-};
 
-module.exports = {emailController};
+module.exports = { emailController };

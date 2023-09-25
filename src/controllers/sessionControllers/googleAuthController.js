@@ -1,39 +1,51 @@
 const express = require("express");
+const session = require("express-session");
 const router = express();
 const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 require("dotenv").config();
 const { GOOGLE_APP_ID, GOOGLE_APP_SECRET } = process.env;
 const { User } = require("../../db");
+const googleAuth = require("./googleAuthAux");
 
+router.use(session({
+  secret: GOOGLE_APP_SECRET, // Cambia esto a una cadena segura
+  resave: false,
+  saveUninitialized: true,
+  // Configuración adicional si es necesario
+}));
+
+let userProfile;
 passport.use(
   new GoogleStrategy(
     {
       clientID: GOOGLE_APP_ID,
       clientSecret: GOOGLE_APP_SECRET,
-      callbackURL: "http://localhost:3001/auth/google/callback", // Cambia esto a tu URL de redireccionamiento
+      callbackURL: "/auth/google/callback", // Cambia esto a tu URL de redireccionamiento
     },
     (accessToken, refreshToken, profile, done) => {
       // Aquí puedes verificar si el usuario ya existe en tu base de datos o crear uno nuevo.
       // Luego, llama a done() para completar la autenticación.
-      User.findOne({ googleId: profile.id }, (err, user) => {
-        if (err) return done(err);
-        if (user) {
-          console.log("Google User already exist in DB..");
-          return done(null, user);
-        } else {
-          console.log("Adding new google user to DB..");
-          const newUser = new User({
-            googleId: profile.id,
-            name_surName: profile.displayName,
-            email: profile.emails[0].value,
-          });
-          newUser.save((err, user) => {
-            if (err) return done(err);
-            return done(null, user);
-          });
-        }
-      });
+      userProfile = profile;
+      return done(null, userProfile);
+      // User.findOne({where: { googleId: profile.id }}, (err, user) => {
+      //   if (err) return done(err);
+      //   if (user) {
+      //     console.log("Google User already exist in DB..");
+      //     return done(null, user);
+      //   } else {
+      //     console.log("Adding new google user to DB..");
+      //     const newUser = new User({
+      //       googleId: profile.id,
+      //       name_surName: profile.displayName,
+      //       email: profile.emails[0].value,
+      //     });
+      //     newUser.save((err, user) => {
+      //       if (err) return done(err);
+      //       return done(null, user);
+      //     });
+      //   }
+      // });
     }
   )
 );
@@ -66,7 +78,7 @@ router.get("/success", async (req, res) => {
   const { failure, success } = await googleAuth.registerWithGoogle(userProfile);
   if (failure) console.log("Google user already exist in DB..");
   else console.log("Registering new Google user..");
-  res.render("success", { user: userProfile });
+  res.render("success", { user: userProfile  });
 });
 
 router.get("/error", (req, res) => res.send("Error logging in via Google.."));
@@ -81,5 +93,7 @@ router.get("/signout", (req, res) => {
     res.status(400).send({ message: "Failed to sign out user" });
   }
 });
+
+router.set('view engine', 'ejs');
 
 module.exports = router;
