@@ -28,24 +28,6 @@ passport.use(
       // Luego, llama a done() para completar la autenticación.
       userProfile = profile;
       return done(null, userProfile);
-      // User.findOne({where: { googleId: profile.id }}, (err, user) => {
-      //   if (err) return done(err);
-      //   if (user) {
-      //     console.log("Google User already exist in DB..");
-      //     return done(null, user);
-      //   } else {
-      //     console.log("Adding new google user to DB..");
-      //     const newUser = new User({
-      //       googleId: profile.id,
-      //       name_surName: profile.displayName,
-      //       email: profile.emails[0].value,
-      //     });
-      //     newUser.save((err, user) => {
-      //       if (err) return done(err);
-      //       return done(null, user);
-      //     });
-      //   }
-      // });
     }
   )
 );
