@@ -60,7 +60,9 @@ router.get("/success", async (req, res) => {
   const { failure, success } = await googleAuth.registerWithGoogle(userProfile);
   if (failure) console.log("Google user already exist in DB..");
   else console.log("Registering new Google user..");
-  res.render("success", { user: userProfile  });
+  // res.render("success", { user: userProfile  });
+  res.setHeader("token", "123");
+  res.redirect("https://pf-b-r-front-end.vercel.app");
 });
 
 router.get("/error", (req, res) => res.send("Error logging in via Google.."));
