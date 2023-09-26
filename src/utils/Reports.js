@@ -25,7 +25,7 @@ module.exports = [
     name: 'John Doe',
     description: 'This is a test report',
     image:
-      'https://this-person-does-not-exist.com/img/avatar-gen07e84b043607b7b8060a91c42ccf3178.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROOGhhBxagNdoMmGw7y2e18MABfY3UKAOqdF_sgqmintPRIaOGvQkmPGwfbX5wKPW_olU&usqp=CAU',
     age: 30,
     gender: 'Male',
     birthday_date: '1962-07-15',
@@ -46,7 +46,8 @@ module.exports = [
   {
     name: 'Alice Johnson',
     description: 'Test report for Alice',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen12345.jpg',
+    image:
+      'https://www.elcolectivo.com.ar/u/fotografias/m/2023/2/14/f768x1-113819_113946_0.jpg',
     age: 32,
     gender: 'Female',
     birthday_date: '1990-04-25',
@@ -67,7 +68,8 @@ module.exports = [
   {
     name: 'John Smith',
     description: 'Test report for John',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen54321.jpg',
+    image:
+      'https://holatelcel.com/wp-content/uploads/2020/12/cuantas-personas-se-llaman-como-yo.png',
     age: 45,
     gender: 'Male',
     birthday_date: '1977-11-03',
@@ -88,7 +90,8 @@ module.exports = [
   {
     name: 'Emily Davis',
     description: 'Test report for Emily',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen67890.jpg',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFogB3c0aNtnWrl9WPR9VHd4RZXjx5ZAT4Dw&usqp=CAU',
     age: 28,
     gender: 'Female',
     birthday_date: '1994-02-12',
@@ -109,7 +112,8 @@ module.exports = [
   {
     name: 'Luis Rodríguez',
     description: 'Test report for Luis',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen54321.jpg',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGlLF0KK4KIgTtMkebnNxLXwLOBIqtfqOCLKpg8hi3DKhXdrXKjauTzTQD05CtsAniNg0&usqp=CAU',
     age: 37,
     gender: 'Male',
     birthday_date: '1985-09-19',
@@ -130,7 +134,8 @@ module.exports = [
   {
     name: 'Sophia Anderson',
     description: 'Test report for Sophia',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen67890.jpg',
+    image:
+      'https://images.hola.com/imagenes/estar-bien/20220720214032/personalidad-adultos-altas-capacidades-psicologia/1-117-802/mujer-inteligente-m.jpg',
     age: 29,
     gender: 'Female',
     birthday_date: '1993-05-08',
@@ -151,7 +156,8 @@ module.exports = [
   {
     name: 'Carlos González',
     description: 'Test report for Carlos',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen12345.jpg',
+    image:
+      'https://danielcolombo.com/wp-content/uploads/2017/04/Persona-poderosa-Daniel-Colombo.jpg',
     age: 42,
     gender: 'Male',
     birthday_date: '1980-03-14',
@@ -172,7 +178,8 @@ module.exports = [
   {
     name: 'Isabella Martinez',
     description: 'Test report for Isabella',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen12345.jpg',
+    image:
+      'https://st1.uvnimg.com/dims4/default/d90db8b/2147483647/thumbnail/400x225/quality/75/?url=https%3A%2F%2Fuvn-brightspot.s3.amazonaws.com%2Fassets%2Fvixes%2Fm%2Fmujer-toca-su-cabello-negro.jpg',
     age: 35,
     gender: 'Female',
     birthday_date: '1987-12-02',
@@ -215,7 +222,8 @@ module.exports = [
   {
     name: 'Anna Petrovna',
     description: 'Test report for Anna',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen12345.jpg',
+    image:
+      'https://cdn.forbes.com.mx/2019/04/blackrrock-invertir-1-640x360.jpg',
     age: 28,
     gender: 'Female',
     birthday_date: '1994-09-14',
@@ -236,7 +244,8 @@ module.exports = [
   {
     name: 'Hiroshi Tanaka',
     description: 'Test report for Hiroshi',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen67890.jpg',
+    image:
+      'https://empresas.infoempleo.com/hrtrends/media/2017/06/ThinkstockPhotos-607488494.jpg',
     age: 36,
     gender: 'Male',
     birthday_date: '1986-03-22',
@@ -257,7 +266,8 @@ module.exports = [
   {
     name: 'Maria Sanchez',
     description: 'Test report for Maria',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen12345.jpg',
+    image:
+      'https://images.hola.com/imagenes/estar-bien/20221018219233/buenas-personas-caracteristicas/1-153-242/getty-chica-feliz-t.jpg',
     age: 40,
     gender: 'Female',
     birthday_date: '1982-08-12',
@@ -278,7 +288,7 @@ module.exports = [
   {
     name: 'Mohammed Khan',
     description: 'Test report for Mohammed',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen67890.jpg',
+    image: 'https://i.blogs.es/74cb41/90/450_1000.jpeg',
     age: 33,
     gender: 'Male',
     birthday_date: '1989-05-07',
@@ -299,7 +309,8 @@ module.exports = [
   {
     name: 'Sophie Müller',
     description: 'Test report for Sophie',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen12345.jpg',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ2FUwvIuoFURJKtbnburSa92e_PkjFjNMJeZndaMkqxjh3AYzG93R-oTCmcK1tspkh4k&usqp=CAU',
     age: 27,
     gender: 'Female',
     birthday_date: '1995-03-30',
@@ -320,7 +331,7 @@ module.exports = [
   {
     name: 'Carlos Rodriguez',
     description: 'Test report for Carlos',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen67890.jpg',
+    image: 'https://f.rpp-noticias.io/2019/02/15/753300descarga-11jpg.jpg',
     age: 48,
     gender: 'Male',
     birthday_date: '1974-09-08',
@@ -341,7 +352,7 @@ module.exports = [
   {
     name: 'Olivia Brown',
     description: 'Test report for Olivia',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen12345.jpg',
+    image: 'https://f.rpp-noticias.io/2019/02/15/753301descarga-12jpg.jpg',
     age: 30,
     gender: 'Female',
     birthday_date: '1992-11-18',
@@ -362,7 +373,8 @@ module.exports = [
   {
     name: 'Aisha Patel',
     description: 'Test report for Aisha',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen67890.jpg',
+    image:
+      'https://img.europapress.es/fotoweb/fotonoticia_20190219154950-1902674809_600.jpg',
     age: 31,
     gender: 'Female',
     birthday_date: '1991-07-23',
@@ -383,7 +395,7 @@ module.exports = [
   {
     name: 'Antonio Fernandez',
     description: 'Test report for Antonio',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen12345.jpg',
+    image: 'https://f.rpp-noticias.io/2019/02/15/753300descarga-11jpg.jpg',
     age: 38,
     gender: 'Male',
     birthday_date: '1984-12-15',
@@ -404,7 +416,8 @@ module.exports = [
   {
     name: 'Elena Petrova',
     description: 'Test report for Elena',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen67890.jpg',
+    image:
+      'https://mochileros.org/nelson/wp-content/uploads/2020/04/esta-persona-no-existe-3.jpg',
     age: 25,
     gender: 'Female',
     birthday_date: '1997-02-28',
@@ -425,7 +438,8 @@ module.exports = [
   {
     name: 'Ahmed Ali',
     description: 'Test report for Ahmed',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen12345.jpg',
+    image:
+      'https://s1.abcstatics.com/media/bienestar/2021/09/09/personas-magneticas-1-kdVD--620x349@abc.jpg',
     age: 29,
     gender: 'Male',
     birthday_date: '1993-09-05',
@@ -446,7 +460,8 @@ module.exports = [
   {
     name: 'Sofia Lopez',
     description: 'Test report for Sofia',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen67890.jpg',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmORj-CJ7yYgd57916pZnOLQ_rqzLTLVfcvdGik6sCIULC0WS-3gxCtORyuLIShSOdEyA&usqp=CAU',
     age: 33,
     gender: 'Female',
     birthday_date: '1989-06-10',
@@ -467,7 +482,8 @@ module.exports = [
   {
     name: 'Lucia Bianchi',
     description: 'Test report for Lucia',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen12345.jpg',
+    image:
+      'https://pymstatic.com/10311/conversions/personas-orgullosas-social.jpg',
     age: 29,
     gender: 'Female',
     birthday_date: '1993-04-17',
@@ -488,7 +504,8 @@ module.exports = [
   {
     name: 'David Kim',
     description: 'Test report for David',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen67890.jpg',
+    image:
+      'https://static01.nyt.com/images/2021/06/08/science/07SCI-MINDSEYE3-esp/merlin_188753607_a3af8ae2-4296-4b6f-b2b1-4973044f9bd2-articleLarge.jpg?quality=75&auto=webp&disable=upscale',
     age: 42,
     gender: 'Male',
     birthday_date: '1980-10-09',
@@ -509,7 +526,8 @@ module.exports = [
   {
     name: 'Alice Taylor',
     description: 'Test report for Alice',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen12345.jpg',
+    image:
+      'https://images.ecestaticos.com/4p56t84xWYPuXzT3ZBiUlj54RAs=/70x0:2638x1809/992x700/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F317%2Fae0%2F456%2F317ae0456e63bd37ce7fa809d5955672.jpg',
     age: 35,
     gender: 'Female',
     birthday_date: '1987-08-23',
@@ -530,7 +548,8 @@ module.exports = [
   {
     name: 'Ali Hassan',
     description: 'Test report for Ali',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen67890.jpg',
+    image:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt1e0c8XodFQgIOCtrnEdFS-Y1b0ninWg2QqwpGIBjqGeyuvxQXYlpePKtAOBacIMe6wM&usqp=CAU',
     age: 26,
     gender: 'Male',
     birthday_date: '1996-06-14',
@@ -551,7 +570,8 @@ module.exports = [
   {
     name: 'Emma Wright',
     description: 'Test report for Emma',
-    image: 'https://this-person-does-not-exist.com/img/avatar-gen12345.jpg',
+    image:
+      'https://p3s7f5y3.rocketcdn.me/wp-content/uploads/2020/07/coaching-para-crear-momentos-felices-en-tu-vida.jpeg',
     age: 30,
     gender: 'Female',
     birthday_date: '1992-12-19',
@@ -573,7 +593,7 @@ module.exports = [
     name: 'Athan Wrez',
     description: 'Test report for Athan',
     image:
-      'https://this-person-does-not-exist.com/img/avatar-gen65585db2807807061679d06d690b6291.jpg',
+      'https://media.gq.com.mx/photos/640f3efd5b759e424e0f463d/master/w_2560%2Cc_limit/premios%2520oscar%25202023%2520broches%2520hombre.jpg',
     age: 21,
     gender: 'Male',
     birthday_date: '2014-12-19',
