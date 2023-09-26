@@ -82,7 +82,7 @@ const nodemailer = require("nodemailer");
                     <p style="margin-bottom: 30px;"><i>Sinceramente:</i><br>El equipo de ByR</p>
     
                     <!-- Botón -->
-                    <a class="claseBoton" style="margin-bottom: 40px" href="!!!!!!!!!!!!Link del deploy IMPORTANT!!!!!!!!!!!!!!">ByR Website</a>
+                    <a class="claseBoton" style="margin-bottom: 40px" href="https://pf-b-r-front-end.vercel.app/">ByR Website</a>
                 </div>
                 <!-- Contenido principal -->
     
