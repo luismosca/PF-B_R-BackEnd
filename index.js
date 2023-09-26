@@ -4,6 +4,7 @@ const reports = require("./src/utils/Reports.js")
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then( async() => {
+;
 
   const reportDb = await Report.bulkCreate(reports, { ignoreDuplicates: true })
   // console.log(reportDb);
@@ -15,9 +16,9 @@ conn.sync({ force: true }).then( async() => {
     image: "https://this-person-does-not-exist.com/img/avatar-gen35841888b862593f28a0cc941ba6b563.jpg",
     role: 'admin',
   }
-  const createdUser = User.create(user)
+  const createdUser = await User.create(user)
   for (const report of reportDb) {
-    await report.addUser(user.id);
+    await report.addUser(createdUser.id);
   }
   server.listen(3001, () => {
     console.log('listening at 3001'); // eslint-disable-line no-console
