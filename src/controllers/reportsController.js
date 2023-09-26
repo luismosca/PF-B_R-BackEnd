@@ -37,7 +37,7 @@ const getReportById = async (id) => {
                 {
                     model: Comment,
                     attributes: ["comment"],
-                    required: true,
+                    // required: true,
                 }
             ],
         })
