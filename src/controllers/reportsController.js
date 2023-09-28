@@ -1,4 +1,4 @@
-const { Report, User } = require("../db");
+const { Report, User, Comment } = require("../db");
 const { Op } = require("sequelize");
 
 const getAllReports = async (options) => {
@@ -9,10 +9,13 @@ const getAllReports = async (options) => {
         //count = total de registros de la busqueda, rows = registros de dicha busqueda;
 
         const { count, rows } = await Report.findAndCountAll(options)
-        return {
-            total: count,
-            reports: rows,
-        }
+        if (rows.length > 0) {
+            
+            return {
+                total: count,
+                reports: rows,
+            }
+        } // Traer el modelo comments junto con el reporte, para renderizarlo en el front.
 
     } catch (error) {
         throw error;
@@ -29,8 +32,13 @@ const getReportById = async (id) => {
             include: [
                 {
                     model: User,
-                    attibutes: ["name"],
+                    attributes: ["name_surName"],
                 },
+                {
+                    model: Comment,
+                    attributes: ["comment"],
+                    // required: true,
+                }
             ],
         })
         if (report) {
