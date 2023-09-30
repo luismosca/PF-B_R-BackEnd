@@ -12,14 +12,11 @@ module.exports = (sequelize) => {
             type: DataTypes.TEXT,
             allowNull: false
         },
-        // reportId: {
-        //     type: DataTypes.UUID,
-        //     allowNull: false,
-        // },
-        // userId: {
-        //     type: DataTypes.UUID,
-        //     allowNull: false,
-        // },
+        state: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
+        }
     },
     {
         freezeTableName: true,

@@ -37,7 +37,10 @@ const getReportById = async (id) => {
                 {
                     model: Comment,
                     attributes: ["comment"],
-                    // required: true,
+                    where: {
+                        state: true,
+                    },
+                    required: false,
                 }
             ],
         })

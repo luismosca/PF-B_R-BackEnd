@@ -5,5 +5,6 @@ const commentsRouter = Router();
 
 commentsRouter.post("/", postCommentsHandler);
 commentsRouter.get("/", getCommentsHandler);
+commentsRouter.put("/", );
 
 module.exports = commentsRouter;
