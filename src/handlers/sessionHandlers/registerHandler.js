@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt')
 const { registerController } = require("../../controllers/sessionControllers/registerController")
+const { emailController } = require("../../controllers/sessionControllers/emailController")
 
 const registerHandler = async (req, res) => {
     try {
@@ -27,6 +28,7 @@ const registerHandler = async (req, res) => {
             email: newUser.email
         };
 
+        emailController(newUser.email);
         return res.status(201).json(responseUser);
 
     } catch (error) {

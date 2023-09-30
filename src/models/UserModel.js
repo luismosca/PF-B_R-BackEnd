@@ -10,29 +10,41 @@ module.exports = (sequelize) => {
         },
         name_surName: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         email: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         image: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         role: {
+<<<<<<< HEAD
             type: DataTypes.ENUM('admin', 'user', 'banned'),
             allowNull: false
+=======
+            type: DataTypes.ENUM('admin', 'user'),
+            allowNull: true
+>>>>>>> developer
         },
         token: {
             type: DataTypes.STRING,
             allowNull: true
+        },
+        facebookId: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        googleId: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
-
     },
     {
         freezeTableName: true,
