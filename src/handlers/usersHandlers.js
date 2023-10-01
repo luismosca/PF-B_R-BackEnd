@@ -7,7 +7,7 @@ const {
 const getAllUsersHandler = async (req, res) => {
   const { name } = req.query;
   try {
-    if (!name) {
+    if (name) {
       const userByName = await getUserByName(name);
       userByName
         ? res.status(201).json({ userByName })
@@ -16,9 +16,11 @@ const getAllUsersHandler = async (req, res) => {
       const allUsers = await getAllUsers();
       allUsers
         ? res.status(200).json(allUsers)
-        : res.status(400).send({ message: `Error to found usuers` });
+        : res.status(400).send({ message: 'Error finding users' });
     }
-  } catch (error) {}
+  } catch (error) {
+    return res.status(500).send({ error: `Error found: ${error}` });
+  }
 };
 
 const getUserByIdHandler = async (req, res) => {

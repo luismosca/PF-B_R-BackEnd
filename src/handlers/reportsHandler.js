@@ -5,17 +5,20 @@ const { Op } = require("sequelize")
 const getReportsHandler = async (req, res) => {
     const { name, page = 1, size = 4, gender, age, location, } = req.query;
     // generos, edad y ubicación, name
+    
     let options = {
         limit: Number(size),
         offset: (page - 1) * Number(size),
-        where: {},
+        where: {
+            status: "approved",
+        },
         include: [
             {
                 model: User,
                 // attributes: ["name"],
             },
         ],
-        order: [["id", "DESC"],],  // Ordenamiento por defecto por fecha de creación descendente (Se mantiene en todos los filtros y ordenamientos adicionales)
+        order: [],  // Ordenamiento por defecto por fecha de creación descendente (Se mantiene en todos los filtros y ordenamientos adicionales)
     };
     if (name) {
 
