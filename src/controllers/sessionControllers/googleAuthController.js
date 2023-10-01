@@ -62,7 +62,7 @@ router.get("/success", async (req, res) => {
   else console.log("Registering new Google user..");
   // res.render("success", { user: userProfile  });
   res.setHeader("token", "123");
-  res.redirect("https://pf-b-r-front-end.vercel.app");
+  res.redirect("https://pf-b-r-front-end.vercel.app/home");
 });
 
 router.get("/error", (req, res) => res.send("Error logging in via Google.."));
