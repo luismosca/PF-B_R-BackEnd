@@ -5,6 +5,15 @@ const {registerHandler} = require('../handlers/sessionHandlers/registerHandler.j
 const { loginHandler } = require("../handlers/sessionHandlers/loginHandler.js");
 
 sessionRouter.post("/login", loginHandler) ///login
+sessionRouter.get("/login", (req, res) => {
+     // Obtener el token del encabezado de la solicitud
+     const token = req.headers.authorization.split(" ")[1];;
+
+     if (!token) {
+         return res.status(401).json({ message: 'Token no proporcionado en los encabezados' });
+     }
+    res.json({ message: 'Token recibido correctamente', token });
+});
 sessionRouter.post("/register", registerHandler) //register
 
 module.exports = sessionRouter;
