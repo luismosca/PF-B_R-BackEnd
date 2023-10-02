@@ -9,9 +9,9 @@ const commentsRouter = require('./commentsRouter');
 // Aquí debes proporcionar una función de middleware válida para cada ruta
 router.use('/session', sessionRouter);
 
-router.use('/auth/facebook', facebookRouter);
+// router.use('/auth/facebook', facebookRouter);
 
-router.use('/auth/google', googleRouter);
+// router.use('/auth/google', googleRouter);
 
 router.use('/users', usersRouter);
 
