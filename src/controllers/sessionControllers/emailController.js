@@ -64,7 +64,7 @@ const nodemailer = require("nodemailer");
         </style>
     </head>
     <body>
-        <div style="width: 100%; background-color: #e3e3e3;">
+        <div style="width: 100%; background-color: transparent;">
             <div style="padding: 20px 10px 20px 10px;">
                 <!-- Imagen inicial -->
                 <div style="background-color: #c5f663; padding: 10px 0px 10px 0px; width: 100%; text-align: center;">
