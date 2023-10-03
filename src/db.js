@@ -4,28 +4,19 @@ const fs = require('fs');
 const path = require('path');
 const { DATABASE_URL } = process.env;
 
-// const {
-//   DB_USER, DB_PASSWORD, DB_HOST,
-// } = process.env;
-
-// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/byr`, {
-//   logging: false, // set to console.log to see the raw SQL queries
-//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+// const sequelize = new Sequelize(DATABASE_URL, {
+//   logging: false, // Desactiva el registro de consultas SQL si lo deseas
+//   dialect: 'postgres', // Indica que estás utilizando PostgreSQL
+//   protocol: 'postgres',
+//   dialectOptions: {
+//     ssl: { require: true, rejectUnauthorized: false }, // Habilita SSL para conexiones seguras (importante en Render)
+//   },
 // });
-const sequelize = new Sequelize(DATABASE_URL, {
-  logging: false, // Desactiva el registro de consultas SQL si lo deseas
-  dialect: 'postgres', // Indica que estás utilizando PostgreSQL
-  protocol: 'postgres',
-  dialectOptions: {
-    ssl: { require: true, rejectUnauthorized: false }, // Habilita SSL para conexiones seguras (importante en Render)
-  },
-});
-// const sequelize = new Sequelize(DATABASE_URL, {   
-//     logging: false, // set to console.log to see the raw SQL queries
-//     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-//   }
-// );
-
+const sequelize = new Sequelize(DATABASE_URL, {   
+    logging: false, // set to console.log to see the raw SQL queries
+    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  }
+);
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -52,7 +43,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { User, Report, Comment } = sequelize.models;
+const {User, Report, Comment, Donation } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
@@ -72,7 +63,7 @@ Report.belongsToMany(User, { through: 'UserReport' }); // Relación inversa de m
 
 
 module.exports = {
-  // ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
-  Report, User, Comment, // Si no funciona la exportación por ...sequelize.models
-  conn: sequelize, // para importart la conexión { conn } = require('./db.js');
+   // ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
+   Report, User, Comment, Donation, // Si no funciona la exportación por ...sequelize.models
+   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };
