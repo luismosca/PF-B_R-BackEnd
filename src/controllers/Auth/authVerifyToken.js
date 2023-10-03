@@ -7,7 +7,7 @@ const verifyToken = (req, res, next) => {
     const bearerToken = bearerHeader.split(" ")[1];
     const payload = jwt.verify(bearerToken, "secret");
 
-    if (Date.now() > payload) {
+    if (!payload) {
       return res.status(401).send({ message: "Token expirado" });
     } 
     next();
