@@ -39,6 +39,7 @@ const getReportById = async (id) => {
                     where: {
                         state: "approved",
                     },
+                    required: false,
                 }
             ],
         })
