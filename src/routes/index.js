@@ -6,6 +6,7 @@ const facebookRouter = require('../controllers/sessionControllers/facebookAuthCo
 const googleRouter = require('../controllers/sessionControllers/googleAuthController')
 const usersRouter = require('./usersRouter.js');
 const commentsRouter = require('./commentsRouter');
+const donationsRouter = require('./donationsRouter.js');
 // Aquí debes proporcionar una función de middleware válida para cada ruta
 router.use('/session', sessionRouter);
 
@@ -17,10 +18,7 @@ router.use('/users', usersRouter);
 
 router.use('/reports', reportsRouter);
 
-router.use('/donations', (req, res, next) => {
-  // Tu middleware para /donations
-  next();
-});
+router.use('/donations', donationsRouter);
 
 router.use('/comments', commentsRouter);
 
