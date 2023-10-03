@@ -27,6 +27,7 @@ const postComments = async (data) => {
 }
 
 const getComments = async (reportId) => {
+    console.log(reportId);
     try {
         const { total, comments} = await Comment.findAndCountAll({
             where: {
