@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-  const emailController = (userEmail) => {
+  const emailControllerReport = (userEmail) => {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 587,
@@ -13,8 +13,8 @@ const nodemailer = require("nodemailer");
     let message = {
       from: "piero7210@gmail.com",
       to: userEmail,
-      subject: "Confirmación de registro exitoso",
-      text: "Bienvenido/a a Búsqueda y Rescate, la Web App donde somos agentes de cambio!",
+      subject: "Confirmación de creación de reporte exitoso",
+      text: "¡Reporte creado con éxito!",
       html: `<!DOCTYPE html>
     <html lang="es">
     <head>
@@ -74,8 +74,8 @@ const nodemailer = require("nodemailer");
     
                 <!-- Contenido principal -->
                 <div style="background-color: #ffffff; padding: 20px 0px 5px 0px; width: 100%; text-align: center;">
-                    <h1>Gracias por tu registro en ByR!</h1>
-                    <p>Bienvenido/a a Búsqueda y Rescate, la Web App donde somos agentes de cambio!</p>
+                    <h1>¡Reporte creado con éxito!</h1>
+                    <p>Con tu reporte eres parte de los nuevos agentes de cambio</p>
     
                     <!-- Gracias -->
                     <p>Muchas Gracias</p>
@@ -115,4 +115,4 @@ const nodemailer = require("nodemailer");
   };
 
 
-module.exports = { emailController };
+module.exports = { emailControllerReport };
