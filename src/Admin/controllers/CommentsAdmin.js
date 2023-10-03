@@ -4,7 +4,7 @@ const getAllComments = async () => {
     try {
         const { count, rows } = await Comment.findAndCountAll({
             where: {
-                state: false
+                state: "pending"
             }
         });
         console.log(count);

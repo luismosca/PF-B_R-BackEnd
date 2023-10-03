@@ -1,8 +1,8 @@
-const {DataTypes} = require('sequelize')
+const { DataTypes } = require('sequelize')
 
 module.exports = (sequelize) => {
     sequelize.define('Comment', {
-        id : {
+        id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
@@ -13,12 +13,11 @@ module.exports = (sequelize) => {
             allowNull: false
         },
         state: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-            defaultValue: false
+            type: DataTypes.ENUM('pending', 'approved', 'refused'),
+            defaultValue: 'pending',
         }
     },
-    {
-        freezeTableName: true,
-    });
+        {
+            freezeTableName: true,
+        });
 }

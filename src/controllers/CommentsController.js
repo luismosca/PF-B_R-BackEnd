@@ -26,16 +26,20 @@ const postComments = async (data) => {
    
 }
 
-const getComments = (reportId) => {
+const getComments = async (reportId) => {
+    console.log(reportId);
     try {
-        const { total, comments} = Comment.findAndCountAll({
+        const { total, comments} = await Comment.findAndCountAll({
             where: {
                 reportId: {
                     [Op.iLike]: reportId
                 }
             }
         })
-        return {total, comments};
+        if (total > 0) {
+            return {total, comments};
+        }
+        return null    
 
     } catch (error) {
         throw error;
