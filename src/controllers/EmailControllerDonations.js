@@ -14,7 +14,7 @@ const EmailControllerDonations = (userEmail) => {
     from: "piero7210@gmail.com",
     to: userEmail,
     subject: "Confirmación de denacion exitosa",
-    text: "Bienvenido/a a Búsqueda y Rescate, la Web App donde somos agentes de cambio!",
+    text: "Gracias por tu aporte al proyecto, Nos ayudas seguir creciendo y mejorando dia a dia!",
     html: `<!DOCTYPE html>
     <html lang="es">
     <head>
@@ -91,7 +91,7 @@ const EmailControllerDonations = (userEmail) => {
                     <h4>Soporte</h4>
                     <p style="font-size: 13px; padding: 0px 20px 0px 20px;">
                         Contáctanos por los siguientes canales:<br>
-                        Mail: <a class="afooter" href="nina.hansen@ethereal.email">nina.hansen@ethereal.email</a><br>
+                        Mail: <a class="afooter" href="byr.soportewebapp@gmail.com">byr.soportewebapp@gmail.com</a><br>
                     </p>
                     <p style="background-color: #06010e; color: #ffffff; padding: 10px 0px 10px 0px; font-size: 12px !important;">
                         © 2023 ByR, Todos los derechos reservados.

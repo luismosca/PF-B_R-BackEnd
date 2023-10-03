@@ -12,7 +12,7 @@ router.use('/session', sessionRouter);
 
 // router.use('/auth/facebook', facebookRouter);
 
-// router.use('/auth/google', googleRouter);
+router.use('/auth/google', googleRouter);
 
 router.use('/users', usersRouter);
 
