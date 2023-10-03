@@ -26,7 +26,6 @@ const getAllReports = async (options) => {
 
 
 const getReportById = async (id) => {
-    console.log(id);
     try {
         const report = await Report.findByPk(id, {
             include: [
@@ -40,10 +39,10 @@ const getReportById = async (id) => {
                     where: {
                         state: "approved",
                     },
-                    required: false,
                 }
             ],
         })
+        console.log(report);
         if (report) {
             return report;
         } else {
