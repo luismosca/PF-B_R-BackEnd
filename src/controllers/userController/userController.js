@@ -37,7 +37,7 @@ async function getUserByName(name) {
 
 const getUserById = async (id) => {
   try {
-    const user = await Report.findByPk(id);
+    const user = await User.findByPk(id);
     if (user) {
       return user;
     } else {

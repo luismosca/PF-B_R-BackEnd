@@ -1,14 +1,18 @@
-const { User } = require("../../db");
-const { emailController } = require("../../controllers/sessionControllers/emailController")
+const { User } = require('../../db');
+const {
+  emailController,
+} = require('../../controllers/sessionControllers/emailController');
 
 const googleAuthDal = {
   registerWithGoogle: async (oauthUser) => {
-    const isUserExists = await User.findOne({where: {
-      googleId: oauthUser.id,
-    }});
+    const isUserExists = await User.findOne({
+      where: {
+        googleId: oauthUser.id,
+      },
+    });
     if (isUserExists) {
       const failure = {
-        message: "User already Registered.",
+        message: 'Usuario ya registrado.',
       };
       return { failure };
     }
@@ -23,7 +27,7 @@ const googleAuthDal = {
     await user.save();
     emailController(oauthUser.emails[0].value);
     const success = {
-      message: "User Registered.",
+      message: 'Usuario Registrado.',
     };
     return { success, email: user.email };
   },
