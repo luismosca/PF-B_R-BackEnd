@@ -75,7 +75,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM('pending', 'approved', 'refused'), // cambio de accepted a approved por temas gramaticales
+      type: DataTypes.ENUM('pending', 'approved', 'refused', 'deleted', 'found'), // cambio de accepted a approved por temas gramaticales
       defaultValue: 'pending',
     },
     // tracking: {
