@@ -6,6 +6,7 @@ const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 require("dotenv").config();
 const { GOOGLE_APP_ID, GOOGLE_APP_SECRET } = process.env;
 const googleAuth = require("./googleAuthAux");
+const jwt = require("jsonwebtoken")
 
 router.use(session({
   secret: GOOGLE_APP_SECRET, // Cambia esto a una cadena segura
@@ -56,11 +57,13 @@ router.get(
 );
 
 router.get("/success", async (req, res) => {
-  const { failure, success } = await googleAuth.registerWithGoogle(userProfile);
+  const { failure, success, email } = await googleAuth.registerWithGoogle(userProfile);
   if (failure) console.log("Google user already exist in DB..");
   else console.log("Registering new Google user..");
+  console.log(userProfile);
   // res.render("success", { user: userProfile  });
-  res.setHeader("token", "123");
+  const token = jwt.sign({ email: email }, "secret", { expiresIn: '7d' });
+  res.setHeader("token", token);
   res.redirect("https://pf-b-r-front-end.vercel.app/home");
 });
 
