@@ -3,7 +3,7 @@ const { conn, Report, User } = require('./src/db.js');
 const reports = require("./src/utils/Reports.js")
 
 // Syncing all the models at once.
-conn.sync({force: true}).then( async() => {
+conn.sync().then( async() => {
 
   const reportDb = await Report.bulkCreate(reports, { ignoreDuplicates: true })
   // console.log(reportDb);
