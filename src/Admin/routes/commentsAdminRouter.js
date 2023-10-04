@@ -3,7 +3,7 @@ const { getAllCommentsHandler, updateCommentsHandler } = require("../handlers/Co
 const verifyIsAdmin = require("../../Middlewares/adminRoutesMiddleware");
 const commentsAdminRouter = Router();
 
-commentsAdminRouter.get("/", getAllCommentsHandler);
-commentsAdminRouter.put("/:id", updateCommentsHandler);
+commentsAdminRouter.get("/", verifyIsAdmin, getAllCommentsHandler);
+commentsAdminRouter.put("/:id", verifyIsAdmin, updateCommentsHandler);
 
 module.exports = commentsAdminRouter;

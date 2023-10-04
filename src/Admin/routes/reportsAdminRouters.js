@@ -3,7 +3,7 @@ const verifyIsAdmin = require("../../Middlewares/adminRoutesMiddleware");
 const { getAllReportsAdminHandler, updateReportsAdminHandler } = require("../handlers/ReportsHandlerAdmin");
 const reportsAdminRouter = Router();
 
-reportsAdminRouter.get("/", getAllReportsAdminHandler);
-reportsAdminRouter.put("/:id", updateReportsAdminHandler);
+reportsAdminRouter.get("/", verifyIsAdmin, getAllReportsAdminHandler);
+reportsAdminRouter.put("/:id", verifyIsAdmin, updateReportsAdminHandler);
 
 module.exports = reportsAdminRouter;

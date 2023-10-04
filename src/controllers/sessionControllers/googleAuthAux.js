@@ -25,7 +25,7 @@ const googleAuthDal = {
     const success = {
       message: "User Registered.",
     };
-    return { success };
+    return { success, email: user.email };
   },
 };
 
