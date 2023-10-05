@@ -64,7 +64,7 @@ router.get("/success", async (req, res) => {
     let emailToken = userProfile.emails[0].value;
     console.log(emailToken);
     const token = jwt.sign({ email: emailToken }, "secret", { expiresIn: '7d' });
-    res.redirect(`http://localhost:5173/home?token=${token}`)
+    res.redirect(`https://pf-b-r-front-end.vercel.app/home?token=${token}`)
   } catch (error) {
     res.status(500).json({error: error.message})    
   }
