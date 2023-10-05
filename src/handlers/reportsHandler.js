@@ -79,12 +79,12 @@ const getReportByIdHandler = async (req, res) => {
 }
 
 const getUserReportsHandler = async (req, res) => {
-    const { id } = req.params;
-    console.log(id);
+    const { email } = req.body;
     try {
-        const userReports = await getUserReports(id);
+        const userReports = await getUserReports(email);
         userReports ? res.status(200).json(userReports) : res.status(400).json({message: "No hay reportes asociados al usuario"})
     } catch (error) {
+        console.log(error);
         return res.status(500).json({message:"Server Error"})
     }
 }

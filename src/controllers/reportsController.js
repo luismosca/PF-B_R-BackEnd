@@ -56,9 +56,13 @@ const getReportById = async (id) => {
 
 };
 
-const getUserReports = async (id) => {
+const getUserReports = async (email) => {
     try {
-        const userInstance = await User.findByPk(id);
+        const userInstance = await User.findOne({
+            where: {
+                email: email,
+            }
+        });
         
         if (!userInstance) {
             return null;

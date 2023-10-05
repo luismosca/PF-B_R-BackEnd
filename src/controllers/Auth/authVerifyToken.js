@@ -23,6 +23,7 @@ const verifyToken = (req, res, next) => {
       return res.status(401).send({ message: "Token expirado" });
     } 
     next();
+    return
   } catch (error) {
     res.status(401).send({error: error.message});
   }
