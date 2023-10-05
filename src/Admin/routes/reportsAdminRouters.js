@@ -4,6 +4,6 @@ const { getAllReportsAdminHandler, updateReportsAdminHandler } = require("../han
 const reportsAdminRouter = Router();
 
 reportsAdminRouter.get("/", verifyIsAdmin, getAllReportsAdminHandler);
-reportsAdminRouter.put("/:id", verifyIsAdmin, updateReportsAdminHandler);
+reportsAdminRouter.put("/:id", updateReportsAdminHandler);
 
 module.exports = reportsAdminRouter;

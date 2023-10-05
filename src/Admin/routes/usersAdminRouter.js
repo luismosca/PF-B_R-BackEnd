@@ -4,6 +4,6 @@ const { getAllUsersAdminHandler, updateUsersAdminHandler } = require("../handler
 const usersAdminRouter = Router();
 
 usersAdminRouter.get("/", verifyIsAdmin, getAllUsersAdminHandler);
-usersAdminRouter.put("/:id", verifyIsAdmin, updateUsersAdminHandler);
+usersAdminRouter.put("/:id", updateUsersAdminHandler);
 
 module.exports = usersAdminRouter;
