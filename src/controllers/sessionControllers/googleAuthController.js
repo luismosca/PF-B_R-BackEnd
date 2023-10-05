@@ -7,6 +7,8 @@ require("dotenv").config();
 const { GOOGLE_APP_ID, GOOGLE_APP_SECRET } = process.env;
 const googleAuth = require("./googleAuthAux");
 const jwt = require("jsonwebtoken")
+const { User } = require('../../db');
+const { Op } = require('sequelize');
 
 router.use(session({
   secret: GOOGLE_APP_SECRET, // Cambia esto a una cadena segura
@@ -42,10 +44,7 @@ passport.deserializeUser((user, done) => {
 
 // request at /auth/google, when user click sign-up with google button transferring
 // the request to google server, to show emails screen
-router.get(
-  "/",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
+router.get("/", passport.authenticate("google", { scope: ["profile", "email"] }));
 
 // URL Must be same as 'Authorized redirect URIs' field of OAuth client, i.e: /auth/google/callback
 router.get(
@@ -61,10 +60,14 @@ router.get("/success", async (req, res) => {
   if (failure) console.log("Google user already exist in DB..");
   else console.log("Registering new Google user..");
   console.log(userProfile);
-  // res.render("success", { user: userProfile  });
-  const token = jwt.sign({ email: email }, "secret", { expiresIn: '7d' });
-  res.setHeader("token", token);
-  res.redirect("https://pf-b-r-front-end.vercel.app/home");
+  try {
+    let emailToken = userProfile.emails[0].value;
+    console.log(emailToken);
+    const token = jwt.sign({ email: emailToken }, "secret", { expiresIn: '7d' });
+    res.redirect(`https://pf-b-r-front-end.vercel.app/home?token=${token}`)
+  } catch (error) {
+    res.status(500).json({error: error.message})    
+  }
 });
 
 router.get("/error", (req, res) => res.send("Error logging in via Google.."));
@@ -79,7 +82,5 @@ router.get("/signout", (req, res) => {
     res.status(400).send({ message: "Failed to sign out user" });
   }
 });
-
-router.set('view engine', 'ejs');
 
 module.exports = router;
