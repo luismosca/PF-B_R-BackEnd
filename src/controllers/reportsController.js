@@ -54,6 +54,30 @@ const getReportById = async (id) => {
         throw error;
     }
 
+};
+
+const getUserReports = async (email) => {
+    try {
+        const userInstance = await User.findOne({
+            where: {
+                email: email,
+            }
+        });
+        
+        if (!userInstance) {
+            return null;
+        }
+
+        const reports = await userInstance.getReports();
+        const count = await userInstance.countReports();
+
+        return {
+            total: count,
+            reports: reports
+        };
+    } catch (error) {
+        throw error;
+    }
 }
 
 const createReports = async (data) => {
@@ -89,7 +113,7 @@ const createReports = async (data) => {
 
 module.exports = {
     getAllReports,
-    // getReportsByName,
+    getUserReports,
     getReportById,
     createReports
 }

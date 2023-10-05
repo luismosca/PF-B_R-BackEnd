@@ -1,4 +1,4 @@
-const { getReportsByName, getAllReports, getReportById, createReports } = require("../controllers/reportsController");
+const { getReportsByName, getAllReports, getReportById, createReports, getUserReports } = require("../controllers/reportsController");
 const { User, Report } = require("../db");
 const { Op } = require("sequelize")
 
@@ -78,6 +78,17 @@ const getReportByIdHandler = async (req, res) => {
 
 }
 
+const getUserReportsHandler = async (req, res) => {
+    const { email } = req.body;
+    try {
+        const userReports = await getUserReports(email);
+        userReports ? res.status(200).json(userReports) : res.status(400).json({message: "No hay reportes asociados al usuario"})
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({message:"Server Error"})
+    }
+}
+
 const postReportHandler = async (req, res) => {
     const data = {
         name,
@@ -113,5 +124,6 @@ const postReportHandler = async (req, res) => {
 module.exports = {
     getReportsHandler,
     getReportByIdHandler,
-    postReportHandler
+    postReportHandler,
+    getUserReportsHandler,
 }
