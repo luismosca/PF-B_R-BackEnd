@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 const { registerController } = require("../../controllers/sessionControllers/registerController")
 const { emailController } = require("../../controllers/sessionControllers/emailController")
+const jwt = require('jsonwebtoken');
 
 const registerHandler = async (req, res) => {
     try {
@@ -11,6 +12,8 @@ const registerHandler = async (req, res) => {
         };
 
         const hashedPassword = await bcrypt.hash(password, 10);
+
+        const tokenNew = jwt.sign({ email: email.email }, "secret", { expiresIn: '7d' });
         
         const userData = {
             name_surName,
@@ -18,13 +21,13 @@ const registerHandler = async (req, res) => {
             password: hashedPassword,
             image,
             role: 'user',
-            token,
+            token: tokenNew
         };
 
         const newUser = await registerController(userData);
 
         const responseUser = {
-            name_surName : newUser.name_surName,
+            name : newUser.name_surName,
             email: newUser.email
         };
 
