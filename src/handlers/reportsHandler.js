@@ -109,7 +109,8 @@ const postReportHandler = async (req, res) => {
         court_order,
         status,
         date,
-        location
+        location,
+        user
     } = req.body
 
     try {

@@ -67,7 +67,7 @@ const getUserReports = async (email) => {
         if (!userInstance) {
             return null;
         }
-
+        
         const reports = await userInstance.getReports();
         const count = await userInstance.countReports();
 
@@ -103,6 +103,9 @@ const createReports = async (data) => {
             date: data.date,
             location: data.location
         });
+
+        await reportCreated.addUser(data.user);
+
         return reportCreated;
     } catch (error) {
         throw error;
