@@ -1,11 +1,17 @@
-const { Comment } = require("../../db")
+const { Comment, User } = require("../../db")
 
 const getAllComments = async () => {
     try {
         const { count, rows } = await Comment.findAndCountAll({
             where: {
                 state: "pending"
-            }
+            },
+            include: [
+                {
+                    model: User,
+                    attributes: ["name_surName"],
+                }
+            ]
         });
         console.log(count);
         if (count > 0) {
